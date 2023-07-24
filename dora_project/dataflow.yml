@@ -1,9 +1,10 @@
 nodes:
   - id: Imu_msg
+  #     create a node as operator
     operator:
       python: op_1/dora_node.py
       inputs:
-        tick: dora/timer/millis/100
+        tick: dora/timer/millis/10
       outputs:
         - imu-data
 

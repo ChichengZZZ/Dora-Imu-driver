@@ -32,7 +32,7 @@ class Operator:
         baudrate = 921600
         print(baudrate)
         timeout = 0.002
-        initial_wait = 0.1
+        initial_wait = 0.01
         if device == 'auto':
             devs = mtdevice.find_devices(timeout=timeout, initial_wait=initial_wait)
             if devs:
@@ -284,7 +284,7 @@ class Operator:
                             print(f"Handler function '{handler_name}' not found.")
                     else:
                         print("Invalid data length.")  # 處理其他數據長度情況，您可以根據需求進行調整
-                # publish available information        
+                # publish available information
                 if self.pub_imu:
                     self.imu_msg.header = self.h
                     # 使用pickle将实例变量转换为字节形式
