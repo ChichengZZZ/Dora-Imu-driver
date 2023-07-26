@@ -22,4 +22,7 @@ dora start dataflow.yml --name first-dataflow
 # Output: c95d118b-cded-4531-a0e4-cd85b7c3916c
 dora logs first-dataflow custom_node_1
 ```
-之后就会出现dora接受的内容
+之后就会出现dora接受的内容  
+**if you need to print the context to test the output**  
+**try:RUST_LOG=debug dora start ./your path.yml --attach --hot-reload**  
+**dora logs ****number node_name** 
