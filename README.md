@@ -14,4 +14,12 @@ pip install pinkle
 ```
 
 ### 3.Usage
-    
+```
+PATH=$PATH:$(pwd)
+cd abc_project(没有就创建dora new abc_project --lang python)
+dora up
+dora start dataflow.yml --name first-dataflow
+# Output: c95d118b-cded-4531-a0e4-cd85b7c3916c
+dora logs first-dataflow custom_node_1
+```
+之后就会出现dora接受的内容
