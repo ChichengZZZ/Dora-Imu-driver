@@ -25,4 +25,4 @@ dora logs first-dataflow custom_node_1
 之后就会出现dora接受的内容  
 **if you need to print the context to test the output**  
 **try:RUST_LOG=debug dora start ./your path.yml --attach --hot-reload**  
-**dora logs ****number node_name** 
+**dora logs (number) (node_name)** 
