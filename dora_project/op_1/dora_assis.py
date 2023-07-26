@@ -90,3 +90,32 @@ class TFTransformations:
                 [0.0, 0.0, 1.0]]
 
 
+class Parameter:
+    def __init__(self, parameter_type, value):
+        self.type = parameter_type
+        self.value = value
+
+    def get_fields_and_field_types(self):
+        return {self.type: type(self.value).__name__}
+
+    def get_parameter_value(self):
+        return self
+
+
+class My_parameter:
+    def __init__(self):
+        self.params = {}
+
+    def declare_parameter(self, name, default):
+        if name not in self.params:
+            self.params[name] = {'type': type(default).__name__, 'value': default}
+
+    def get_parameter(self, name):
+        return self.params.get(name, None)
+
+    def get_param(self, name, default):
+        self.declare_parameter(name, default)
+        parameter = self.get_parameter(name)
+        parameter_type = parameter['type']
+        parameter_value = parameter['value']
+        return parameter_value

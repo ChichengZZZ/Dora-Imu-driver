@@ -15,7 +15,7 @@ import mtdef
 from math import radians, sqrt, atan2
 # transform Euler angles or matrix into quaternions
 # from TFTransformations import quaternion_from_matrix, quaternion_from_euler, identity_matrix
-from dora_assis import Imu, Header, String, TFTransformations
+from dora_assis import Imu, Header, TFTransformations, Parameter, My_parameter
 import serial  # 是python serial 库是一个用于与串口通信的库。它提供了与串口设备进行通信的功能，允许ROS节点通过串口与外部硬件设备进行数据交换
 
 from dora import DoraStatus
@@ -51,9 +51,11 @@ class Operator:
 
         self.frame_id = 'base_imu'
 
-        self.frame_local = 'ENU'
-
-        print(self.frame_id)
+        self.myparameter = My_parameter()
+        parameter_value = self.myparameter.get_param("frame_local", 'ENU')
+        self.frame_local = parameter_value
+        print("this is frame_id")
+        print(self.frame_local)
 
         self.angular_velocity_covariance = [radians(0.025)] * 3
         self.linear_acceleration_covariance = [0.0004] * 3
